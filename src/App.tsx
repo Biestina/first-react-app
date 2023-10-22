@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Message from "./components/Message";
+import Content from "./components/Content";
+import ListGroup from "./components/ListGroup";
+import ListGroup2 from "./components/ListGroup2";
+import Alert from "./components/Alert";
+import Button from "./components/Button";
+import AlertDismiss from "./components/AlertDismiss";
+import Counter from "./components/Counter";
 
 function App() {
+  const [alertVisible, setAlertVisibility] =useState(false);
+
+  const items = ["Tokyo", "Stockholm", "Oslo", "Wien", "Ottawa"];
+
+  const handleSelectItem = (item: string) => {
+    console.log(item);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Message />
+      {/* <Content/> */}
+      {/* <ListGroup items={items} heading="Cities"/> */}
+      <ListGroup2 items={items} heading="Cities-click" onSelectItem={handleSelectItem}/>
+      {/* <Alert>Hello <span>word</span></Alert> */}
+
+      {alertVisible && <AlertDismiss onClose={() => setAlertVisibility(false)}>
+        My alert</AlertDismiss>}
+      <Button onClick={() => setAlertVisibility(true)}>
+        My button
+      </Button>
+      <Counter/>
     </div>
   );
 }
