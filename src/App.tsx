@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import Message from "./components/Message";
 import Content from "./components/Content";
 import ListGroup from "./components/ListGroup";
@@ -19,7 +19,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
       <Message />
       {/* <Content/> */}
       {/* <ListGroup items={items} heading="Cities"/> */}
@@ -32,6 +32,7 @@ function App() {
         My button
       </Button>
       <Counter/>
+      <div className="App-logo"></div>
     </div>
   );
 }
