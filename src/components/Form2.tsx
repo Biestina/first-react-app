@@ -80,13 +80,27 @@ const Form = () => {
   renderCount++;
   return (
     <>
-      <h1>{isLogin ? "Login" : "Register"}</h1>
-      <button type="button" onClick={() => setIsLogin(!isLogin)}>
-        Switch to {isLogin ? "Register" : "Login"}
-      </button>
-      <span>ideiglenes stateváltó</span>
       <h4>Rerender count: ({renderCount / 2})</h4>
-      <form className="shadow p-5 m-5" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <h1>{isLogin ? "Login" : "Register"}</h1>
+      <span>
+        {isLogin ? "Don't have an account yet?" : "Already have an account?"}
+      </span>
+      <button
+        type="button"
+        onClick={() => setIsLogin(isLogin ? false : true)}
+      >
+        {isLogin ? "Sign up for free" : "Log in"}
+      </button>
+
+      {/* <button type="button" onClick={() => setIsLogin(!isLogin)}>
+         Sign up for free {isLogin ? "Register" : "Login"}
+      </button> */}
+
+      <form
+        className="shadow p-5 m-5"
+        onSubmit={handleSubmit(onSubmit)}
+        noValidate
+      >
         {!isLogin && (
           <>
             <input
