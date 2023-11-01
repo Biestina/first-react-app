@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.scss";
+// import "./index.scss";
 import Message from "./components/Message";
 import Content from "./components/Content";
 import ListGroup from "./components/ListGroup";
@@ -10,32 +11,41 @@ import AlertDismiss from "./components/AlertDismiss";
 import Counter from "./components/Counter";
 import Form from "./components/Form";
 import Form2 from "./components/Form2";
+import { TailwindPlay } from "./components/tailwind/TailwindPlay";
+import { ButtonTw } from "./components/tailwind/ButtonTw";
+import FigmaButtons from "./components/tailwind/FigmaButtons";
 
 function App() {
-  const [alertVisible, setAlertVisibility] =useState(false);
+  const [alertVisible, setAlertVisibility] = useState(false);
 
   const items = ["Tokyo", "Stockholm", "Oslo", "Wien", "Ottawa"];
 
   const handleSelectItem = (item: string) => {
     console.log(item);
-  }
+  };
 
   return (
     <div className="App">
       <Message />
       {/* <Form2 isLogin={false}/> */}
-      <Form2/>
+      <Form2 />
+        <FigmaButtons />
       {/* <Content/> */}
       {/* <ListGroup items={items} heading="Cities"/> */}
-      <ListGroup2 items={items} heading="Cities-click" onSelectItem={handleSelectItem}/>
+      <ListGroup2
+        items={items}
+        heading="Cities-click"
+        onSelectItem={handleSelectItem}
+      />
       {/* <Alert>Hello <span>word</span></Alert> */}
 
-      {alertVisible && <AlertDismiss onClose={() => setAlertVisibility(false)}>
-        My alert</AlertDismiss>}
-      <Button onClick={() => setAlertVisibility(true)}>
-        My button
-      </Button>
-      <Counter/>
+      {alertVisible && (
+        <AlertDismiss onClose={() => setAlertVisibility(false)}>
+          My alert
+        </AlertDismiss>
+      )}
+      <Button onClick={() => setAlertVisibility(true)}>My button</Button>
+      <Counter />
       <div className="App-logo"></div>
     </div>
   );

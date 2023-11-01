@@ -80,13 +80,13 @@ const Form = () => {
   renderCount++;
   return (
     <>
-      <h4>Rerender count: ({renderCount / 2})</h4>
+      <h4 className="text-orange-500">Rerender count: ({renderCount / 2})</h4>
       <h1>{isLogin ? "Login" : "Register"}</h1>
       <span>
         {isLogin ? "Don't have an account yet?" : "Already have an account?"}
       </span>
       <button
-        type="button"
+        type="button" className="button secondary-button mx-4"
         onClick={() => setIsLogin(isLogin ? false : true)}
       >
         {isLogin ? "Sign up for free" : "Log in"}
@@ -138,7 +138,7 @@ const Form = () => {
             <p>{errors.confirmPassword?.message}</p>
           </>
         )}
-        <button type="submit">{isLogin ? "Login" : "Register"}</button>
+        <button type="submit" className="button secondary-button">{isLogin ? "Login" : "Register"}</button>
       </form>
       <DevTool control={control} />
     </>
