@@ -15,10 +15,14 @@ type FormValues = {
   email: string;
   age: number;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
 };
 
-const Form = () => {
+type Props = {
+  isLogin: boolean
+}
+
+const Form = ({isLogin = false}: Props) => {
   // const createUser = async (event: any) => {
   //   event.preventDefault();
   //   let formData = {
@@ -93,12 +97,13 @@ const Form = () => {
           {...register("password")}
         />
         <p>{errors.password?.message}</p>
-        <input
+
+        {/* {!isLogin && <input
           type="password"
           placeholder="confirm password"
           {...register("confirmPassword")}
-        />
-        <p>{errors.confirmPassword?.message}</p>
+        />}
+        {!isLogin && <p>{errors.confirmPassword?.message}</p>} */}
         <input type="submit" id="submit" />
       </form>
       <DevTool control={control} />

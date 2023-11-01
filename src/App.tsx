@@ -9,6 +9,7 @@ import Button from "./components/Button";
 import AlertDismiss from "./components/AlertDismiss";
 import Counter from "./components/Counter";
 import Form from "./components/Form";
+import Form2 from "./components/Form2";
 
 function App() {
   const [alertVisible, setAlertVisibility] =useState(false);
@@ -22,7 +23,8 @@ function App() {
   return (
     <div className="App">
       <Message />
-      <Form/>
+      {/* <Form2 isLogin={false}/> */}
+      <Form2/>
       {/* <Content/> */}
       {/* <ListGroup items={items} heading="Cities"/> */}
       <ListGroup2 items={items} heading="Cities-click" onSelectItem={handleSelectItem}/>
